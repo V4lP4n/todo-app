@@ -1,0 +1,22 @@
+v1.0
+Backend:
+- stack:
+    - GO
+    - SQLite
+- 2 handlers:
+    get_data:
+        - Type: GET
+        - Functions: return JSON formatted data with full todo list
+    put_data:
+        - Type: PUT
+        - Functions: Put one data string from frontend to database
+Frontend:
+- Content: 1 Preloaded table with all todo data
+- Buttons:
+    - + button to add a row
+    - Check button to mark row as complited
+    - Send button in each row to put row data with put handler
+Infrastructure:
+- SQLite 
+- SQL Script  to prepare database
+
