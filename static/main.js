@@ -1,5 +1,4 @@
 
-document.addEventListener("DOMContentLoaded", ready)
 
 let host = "http://localhost"
 let list = "/api/list"
@@ -26,26 +25,27 @@ function prep_row(num, data, status){
  let data_td = document.createElement('td')
  let status_td = document.createElement('td')
  
- tr.className="todo_tr_"+status
+ tr.className="todo_tr "+status
  id_td.className="todo_td"
  data_td.className="todo_td"
 
  
  id_td.innerHTML=num
- id_td.innerHTML+= data
+ data_td.innerHTML+= data
 
 tr.appendChild(id_td)
     tr.appendChild(data_td)
 return tr
 }
 
+async function load_table(){
 
-async function ready(){
+    let tbody = document.querySelector("#tbody")
 
-let app = document.querySelector("#app")
-let data = await get_list()
-for ( let i=0; i<data.length; i++){
- let row = prep_row(data[i].id, data[i].data, data[i].status)
- app.appendChild(row)
+    let data = await get_list()
+    for ( let i=0; i<data.length; i++){
+    let row = prep_row(data[i].id, data[i].data, data[i].status)
+    tbody.appendChild(row)
+    }
 }
-}
+load_table()

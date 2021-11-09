@@ -1,0 +1,51 @@
+//colors
+$bg_color: #E5E5E5
+$font_color: #78808f
+$font: 100% Helvetica, sans-serif
+$table_color: #fff
+$table_hover_color:#F8F8F8
+$font-size: 1em
+    
+html
+    background-color: $bg_color
+    color: $font_color
+    font:$font
+    display: grid
+
+
+
+main
+    display: grid
+
+
+
+#app
+    min-width: 50%
+    max-width: 600px
+    align-self: center
+    margin: 0px auto
+
+
+
+
+.todo_table
+    border-collapse: collapse 
+    background-color: $table_color
+    width: 100%!important
+
+.todo_tr
+    text-align: center
+    border-bottom: solid $bg_color 0.1em
+    transition: .1s linear
+
+.todo_tr:hover
+    position: relative
+    background-color: $table_hover_color
+    transition: .1s linear
+    font-size: 110%
+
+.todo_td
+    padding-left: 0.1em
+    padding-right: 0.1em
+
+

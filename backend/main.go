@@ -8,7 +8,7 @@ import (
 
 func main() {
 	//index page
-	http.Handle("/", http.FileServer(http.Dir("Frontend")))
+	http.Handle("/", http.FileServer(http.Dir("static")))
 
 	//Get list json
 	http.HandleFunc("/api/list", func(w http.ResponseWriter, r *http.Request) {

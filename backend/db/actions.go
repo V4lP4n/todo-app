@@ -8,7 +8,7 @@ import (
 	_ "github.com/mattn/go-sqlite3"
 )
 
-const db_path = "Infrastructure/base.sqlite3"
+const db_path = "infrastructure/base.sqlite3"
 
 type Todo struct {
 	Id     int    `json:"id"`
