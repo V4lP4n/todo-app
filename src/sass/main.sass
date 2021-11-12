@@ -1,0 +1,71 @@
+//colors
+$bg_color: #E5E5E5
+$font_color: #78808f
+$font: 100% Helvetica, sans-serif
+$table_color: #fff
+$table_hover_color:#F8F8F8
+$font-size: 1em
+    
+html
+    background-color: $bg_color
+    color: $font_color
+    font:$font
+    display: grid
+    min-width: inherit
+
+main
+    display: grid
+
+#app
+    min-width: 100px
+    max-width: 200px
+    align-self: center
+    margin: 0px auto
+
+    table
+        border-collapse: collapse 
+        background-color: $table_color
+        width: 100%!important
+        border-radius: 5%
+
+        tr
+            text-align: left
+            border-bottom: solid $bg_color 0.1em
+            transition: .1s linear
+            &:hover
+                position: relative
+                background-color: $table_hover_color
+                transition: .1s linear
+                font-size: 110%
+
+            td
+                padding-left: 1em
+                img
+                    display: none
+            &:hover
+                img
+                    align-self: right
+                    display: inline
+                    margin-right: 0px
+                    margin-top: 0px 
+                    transition: .2s 
+
+
+#actions
+    &.visible
+        display: inline-block!important
+    background-color: $table_color
+    padding: 5px          
+    display: none
+    ul
+        padding: 0px
+        margin:5px
+        li
+            list-style-type: none
+
+.container
+    max-width:1200px
+    padding: 15px
+
+
+
