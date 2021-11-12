@@ -3,41 +3,69 @@ html {
   color: #78808f;
   font: 100% Helvetica, sans-serif;
   display: grid;
+  min-width: inherit;
 }
 
 main {
   display: grid;
 }
 
-#app {
-  min-width: 50%;
-  max-width: 600px;
+.app {
+  min-width: 100px;
+  max-width: 200px;
   align-self: center;
   margin: 0px auto;
 }
-
-.todo_table {
+.app table {
   border-collapse: collapse;
   background-color: #fff;
   width: 100% !important;
+  border-radius: 5%;
 }
-
-.todo_tr {
-  text-align: center;
+.app table tr {
+  text-align: left;
   border-bottom: solid #E5E5E5 0.1em;
   transition: 0.1s linear;
 }
-
-.todo_tr:hover {
+.app table tr:hover {
   position: relative;
   background-color: #F8F8F8;
   transition: 0.1s linear;
   font-size: 110%;
 }
+.app table tr td {
+  padding-left: 1em;
+}
+.app table tr td img {
+  display: none;
+}
+.app table tr:hover img {
+  align-self: right;
+  display: inline;
+  margin-right: 0px;
+  margin-top: 0px;
+  transition: 0.2s;
+}
 
-.todo_td {
-  padding-left: 0.1em;
-  padding-right: 0.1em;
+.actions {
+  background-color: #fff;
+  padding: 5px;
+  display: none;
+}
+.actions.visible {
+  display: inline-block !important;
+}
+.actions ul {
+  padding: 0px;
+  margin: 5px;
+}
+.actions ul li {
+  list-style-type: none;
+}
+
+.container {
+  max-width: 1200px;
+  padding: 15px;
 }
 
 /*# sourceMappingURL=main.css.map */

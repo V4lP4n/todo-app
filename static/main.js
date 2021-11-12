@@ -31,10 +31,13 @@ async function get_json_list(){
     tr.appendChild(data_td)
     tr.appendChild(actions_td)
 
-    menu = document.querySelector("#actions")
+    menu = document.querySelector(".actions")
+    prev_id = menu.id
     
     actions.onclick=function(){
-        menu.className="visible"
+        menu.className="visible "+num
+        //menu.id+=num
+
     }
         
     return tr
@@ -42,7 +45,7 @@ async function get_json_list(){
 
 //adding table with taskbars in html
 async function load_table(){
-    let app = document.querySelector('#app')
+    let app = document.querySelector('.app')
     let table = app.querySelector('table')
     let tbody = table.querySelector('tbody')
     let data = await get_json_list()
