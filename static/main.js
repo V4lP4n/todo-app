@@ -1,5 +1,3 @@
-
-
 let host = "http://localhost"
 let list = "/api/list"
 
@@ -51,6 +49,6 @@ async function load_table(){
     let row = prep_row(data[i].id, data[i].data, data[i].status)
     tbody.appendChild(row)
 
-    }
+    }   
 }
 load_table()
