@@ -6,7 +6,7 @@ class TB{
         let tb = document.createElement('table')
         let tr = document.createElement('tr')
         let td = document.createElement('td')
-        tr.innerHTML+=this.name
+        td.innerHTML+=this.name
         tr.appendChild(td)
         tb.appendChild(tr)
         return tb
