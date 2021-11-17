@@ -3,7 +3,7 @@ package main
 import (
 	"net/http"
 
-	"./db"
+	"back/db"
 )
 
 func main() {
