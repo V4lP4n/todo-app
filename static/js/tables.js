@@ -9,6 +9,7 @@ class TB{
         tr.innerHTML+=this.name
         tr.appendChild(td)
         tb.appendChild(tr)
+        return tb
 
     }
 }
