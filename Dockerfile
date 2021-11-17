@@ -10,9 +10,8 @@ RUN mkdir /todoapp
 COPY . /todoapp/
 WORKDIR /todoapp/backend
 ENV GOBIN /go/bin
-# RUN set -x go get get github.com/mattn/go-sqlite3 dep ensure -v
-RUN go get -u github.com/mattn/go-sqlite3
-RUN go install -v ./...
-RUN go build -o ../srv main.go 
-RUN infrasructure/make_db.sh
-CMD ["srv"]
+RUN go get -u
+RUN go build -o ../srv 
+# RUN apt install sqlite3
+WORKDIR /todoapp/infrasructure
+RUN ls
