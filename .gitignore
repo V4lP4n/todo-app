@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 main
 Frontend/main.js
 staic/main.css
@@ -6,3 +7,7 @@ koala-config.json
 static/main.css.map
 .gitignore
 srv.exe
+=======
+static/main.css
+
+>>>>>>> develop

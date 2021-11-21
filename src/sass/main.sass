@@ -9,29 +9,39 @@ $font-size: 1em
 html
     background-color: $bg_color
     color: $font_color
+<<<<<<< HEAD
     font: $font
     display: grid
+=======
+    font:$font
+    display: inline
+>>>>>>> develop
     min-width: inherit
 
 main
-    display: grid
+    display: inline
 
-#app
-    min-width: 100px
-    max-width: 200px
-    align-self: center
+.app
+    align-self: left
     margin: 0px auto
 
     table
         border-collapse: collapse 
-        background-color: $table_color
-        width: 100%!important
-        border-radius: 5%
+        min-width: 100px
+        max-width: 200px
+        display: inline
+        margin-right: 0.3%
 
         tr
             text-align: left
             border-bottom: solid $bg_color 0.1em
             transition: .1s linear
+            background-color: $table_color
+            padding-left: 1em
+            padding-right: 1em
+            padding-top: 0.5em
+            padding-down: 0.5em
+            
             &:hover
                 position: relative
                 background-color: $table_hover_color
@@ -39,21 +49,25 @@ main
                 font-size: 110%
 
             td
-                padding-left: 1em
+                
                 img
                     display: none
-            &:hover
-                img
-                    align-self: right
-                    display: inline
                     margin-right: 0px
                     margin-top: 0px 
                     transition: .2s 
+                    align-self: right
+                    
+            &:hover
+                padding-right: 0em
+                img                   
+                    display: inline
+                    
 
 
-#actions
+
+.actions
     &.visible
-        display: inline-block!important
+        display: inline
     background-color: $table_color
     padding: 5px          
     display: none
