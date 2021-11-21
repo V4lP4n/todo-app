@@ -1,0 +1,91 @@
+html {
+  background-color: #E5E5E5;
+  color: #78808f;
+  font: 100% Helvetica, sans-serif;
+  display: -ms-grid;
+  display: grid;
+  min-width: inherit;
+}
+
+main {
+  display: inline;
+}
+
+.app {
+  -ms-flex-item-align: left;
+      -ms-grid-row-align: left;
+      align-self: left;
+  margin: 0px auto;
+}
+
+.app table {
+  border-collapse: collapse;
+  min-width: 100px;
+  max-width: 200px;
+  display: inline;
+  margin-right: 0.3%;
+}
+
+.app table tr {
+  text-align: left;
+  border-bottom: solid #E5E5E5 0.1em;
+  -webkit-transition: .1s linear;
+  transition: .1s linear;
+  background-color: #fff;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 0.5em;
+  padding-down: 0.5em;
+}
+
+.app table tr:hover {
+  position: relative;
+  background-color: #F8F8F8;
+  -webkit-transition: .1s linear;
+  transition: .1s linear;
+  font-size: 110%;
+}
+
+.app table tr td img {
+  display: none;
+  margin-right: 0px;
+  margin-top: 0px;
+  -webkit-transition: .2s;
+  transition: .2s;
+  -ms-flex-item-align: right;
+      -ms-grid-row-align: right;
+      align-self: right;
+}
+
+.app table tr:hover {
+  padding-right: 0em;
+}
+
+.app table tr:hover img {
+  display: inline;
+}
+
+.actions {
+  background-color: #fff;
+  padding: 5px;
+  display: none;
+}
+
+.actions.visible {
+  display: inline;
+}
+
+.actions ul {
+  padding: 0px;
+  margin: 5px;
+}
+
+.actions ul li {
+  list-style-type: none;
+}
+
+.container {
+  max-width: 1200px;
+  padding: 15px;
+}
+/*# sourceMappingURL=main.css.map */
