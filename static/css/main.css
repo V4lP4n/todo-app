@@ -68,11 +68,8 @@ main {
 .actions {
   background-color: #fff;
   padding: 5px;
+  max-width: 200px;
   display: none;
-}
-
-.actions.visible {
-  display: inline;
 }
 
 .actions ul {

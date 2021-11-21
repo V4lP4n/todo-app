@@ -7,3 +7,7 @@ static/main.css.map
 .gitignore
 srv.exe
 srv
+static/css/main.css.map
+static/index copy.html
+src/sass/main.css.map
+src/sass/main.css

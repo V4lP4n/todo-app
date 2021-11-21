@@ -1,3 +1,4 @@
+@import 'tables.sass';
 //colors
 $bg_color: #E5E5E5
 $font_color: #78808f
@@ -5,7 +6,7 @@ $font: 100% Helvetica, sans-serif
 $table_color: #fff
 $table_hover_color: #F8F8F8
 $font-size: 1em
-    
+
 html
     background-color: $bg_color
     color: $font_color
@@ -57,21 +58,19 @@ main
                 img                   
                     display: inline
                     
-
-
-
 .actions
-    &.visible
-        display: inline
+    &.def   
     background-color: $table_color
-    padding: 5px          
+    padding: 5px
+    max-width: 200px
     display: none
     ul
         padding: 0px
         margin: 5px
+        
         li
             list-style-type: none
-
+        
 .container
     max-width: 1200px
     padding: 15px

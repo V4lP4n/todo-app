@@ -11,9 +11,18 @@ func main() {
 	http.Handle("/", http.FileServer(http.Dir("static")))
 
 	//Get list json
-	http.HandleFunc("/api/list", func(w http.ResponseWriter, r *http.Request) {
+	http.HandleFunc("/api/tasks", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "application/json")
-		w.Write(db.Get_list())
+		w.Header().Set("Access-Control-Allow-Origin", "*")
+
+		w.Write(db.Get_tasks())
+	})
+
+	http.HandleFunc("/api/lists", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "application/json")
+		w.Header().Set("Access-Control-Allow-Origin", "*")
+
+		w.Write(db.Get_lists())
 	})
 
 	http.ListenAndServe(":80", nil)
