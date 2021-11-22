@@ -63,7 +63,8 @@ async function render(){
 
     //rendering
     for (let i in obj_lists){
-        app.appendChild(obj_lists[i].genSelf())
+        obj_lists[i].genSelf()
+        app.appendChild(obj_lists[i].html)
     }
 
     

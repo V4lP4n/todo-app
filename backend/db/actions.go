@@ -3,7 +3,6 @@ package db
 
 import (
 	"database/sql"
-	"encoding/json"
 
 	_ "github.com/mattn/go-sqlite3"
 )
@@ -22,7 +21,7 @@ type List struct {
 }
 
 // return json
-func Get_tasks() []byte {
+func Get_tasks() []Task {
 	db, err := sql.Open("sqlite3", db_path)
 	if err != nil {
 		panic(err)
@@ -42,16 +41,10 @@ func Get_tasks() []byte {
 		list = append(list, l)
 	}
 	defer db.Close()
-
-	res, err := json.Marshal(list)
-	if err != nil {
-		panic(err)
-	}
-
-	return res
+	return list
 }
 
-func Get_lists() []byte {
+func Get_lists() []List {
 	db, err := sql.Open("sqlite3", db_path)
 	if err != nil {
 		panic(err)
@@ -72,10 +65,5 @@ func Get_lists() []byte {
 	}
 	defer db.Close()
 
-	res, err := json.Marshal(list)
-	if err != nil {
-		panic(err)
-	}
-
-	return res
+	return list
 }
