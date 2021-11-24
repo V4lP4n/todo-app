@@ -1,8 +1,8 @@
 import {List, Task} from './js/entities.js'
 
 const host = "http://localhost"
-const lists = "/api/lists"
-const tasks = "/api/tasks"
+const lists = "/api/lists/"
+const tasks = "/api/tasks/"
 
 
 //returns array of todo lists

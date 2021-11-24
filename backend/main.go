@@ -1,6 +1,7 @@
 package main
 
 import (
+	"log"
 	"net/http"
 
 	"github.com/gorilla/mux"
@@ -9,11 +10,11 @@ import (
 func main() {
 
 	r := mux.NewRouter()
-	r.PathPrefix("/").Handler(http.StripPrefix("/", http.FileServer(http.Dir("static/"))))
-	r.HandleFunc("/api/tasks", getTasks)
-	r.HandleFunc("/api/lists", getLists)
-	// r.HandleFunc("/api/tasks/{id}", getTask).Methods("GET")
-	// r.HandleFunc("/api/lists/{id}", getList).Methods("GET")
 
-	http.ListenAndServe(":80", r)
+	r.HandleFunc("/api/tasks/", GetTasks)
+	r.HandleFunc("/api/lists/", GetLists)
+	r.HandleFunc("/api/tasks/{id}", GetTask).Methods("GET")
+	r.HandleFunc("/api/lists/{id}", GetList).Methods("GET")
+	r.PathPrefix("/").Handler(http.FileServer(http.Dir("./static/")))
+	log.Fatal(http.ListenAndServe(":80", r))
 }

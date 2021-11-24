@@ -21,12 +21,12 @@ type List struct {
 }
 
 // return json
-func Get_tasks() []Task {
+func GetTasks() []Task {
 	db, err := sql.Open("sqlite3", db_path)
 	if err != nil {
 		panic(err)
 	}
-	list := []Task{}
+	tasks := []Task{}
 	rows, err := db.Query("select * from task")
 	if err != nil {
 		panic(err)
@@ -38,18 +38,18 @@ func Get_tasks() []Task {
 		if err != nil {
 			panic(err)
 		}
-		list = append(list, l)
+		tasks = append(tasks, l)
 	}
 	defer db.Close()
-	return list
+	return tasks
 }
 
-func Get_lists() []List {
+func GetLists() []List {
 	db, err := sql.Open("sqlite3", db_path)
 	if err != nil {
 		panic(err)
 	}
-	list := []List{}
+	lists := []List{}
 	rows, err := db.Query("select * from list")
 	if err != nil {
 		panic(err)
@@ -61,7 +61,55 @@ func Get_lists() []List {
 		if err != nil {
 			panic(err)
 		}
-		list = append(list, l)
+		lists = append(lists, l)
+	}
+	defer db.Close()
+
+	return lists
+}
+
+func GetTask(id string) Task {
+	db, err := sql.Open("sqlite3", db_path)
+	if err != nil {
+		panic(err)
+	}
+	task := Task{}
+	rows, err := db.Query("select * from task where id=" + id)
+	if err != nil {
+		panic(err)
+	}
+	for rows.Next() {
+
+		err := rows.Scan(&task.Id, &task.Data, &task.Status, &task.List_id)
+
+		if err != nil {
+			panic(err)
+		}
+
+	}
+	defer db.Close()
+
+	return task
+}
+
+func GetList(id string) List {
+	db, err := sql.Open("sqlite3", db_path)
+	if err != nil {
+		panic(err)
+	}
+	list := List{}
+	rows, err := db.Query("select * from list where id=" + id)
+	if err != nil {
+		panic(err)
+	}
+	for rows.Next() {
+
+		err := rows.Scan(&list.Id, &list.Name)
+
+		if err != nil {
+			panic(err)
+		}
+
 	}
 	defer db.Close()
 
