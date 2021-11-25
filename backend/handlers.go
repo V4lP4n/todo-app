@@ -55,3 +55,15 @@ func GetList(w http.ResponseWriter, r *http.Request) {
 	}
 	w.Write(js_data)
 }
+
+func GetUser(w http.ResponseWriter, r *http.Request) {
+	testid := 0
+
+	user := db.User{Id: testid}
+	user.BuildUser()
+	js_data, err := json.Marshal(user)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
+	w.Write(js_data)
+}
