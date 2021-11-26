@@ -20,9 +20,17 @@ CREATE TABLE if not EXISTS 'user'(
     `passwd_hash` varchar(100)
 );
 
-Insert into user (id, uname, passwd_hash) values (0, 'test', 'qew'); 
-Insert into task_list (id, name, user_id) values (0, "default", 0);
+Insert into user (uname, passwd_hash) values ('test', 'qew'); 
+Insert into user (uname, passwd_hash) values ('valera', 'ewq'); 
+Insert into task_list (name, user_id) values ("default", 1);
+Insert into task_list (name, user_id) values ("testtaskofusertest", 1);
+Insert into task_list (name, user_id) values ("testtaskofuservalera", 2);
 Insert into task (data,list_id) 
 values 
-("test1",0),
-("test2",0);
+("test1",1),
+("test2",1),
+("test3",3),
+("test4",2),
+("test5",3),
+("test6",1),
+("test7",3);

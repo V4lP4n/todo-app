@@ -4,6 +4,7 @@ import (
 	"back/db"
 	"encoding/json"
 	"net/http"
+	"strconv"
 
 	"github.com/gorilla/mux"
 )
@@ -31,37 +32,63 @@ func GetLists(w http.ResponseWriter, r *http.Request) {
 	w.Write(js_data)
 }
 
+//+
 func GetTask(w http.ResponseWriter, r *http.Request) {
-
 	vars := mux.Vars(r)
-	key := vars["id"]
-	data := db.GetTask(key)
-
-	js_data, err := json.Marshal(data)
+	key, err := strconv.Atoi(vars["id"])
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
+	} else {
+		task := db.Task{Id: key}
+		task.Build()
+		js_data, err := json.Marshal(task)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+		}
+		w.Write(js_data)
 	}
-	w.Write(js_data)
 }
 
+//+
 func GetList(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
-	key := vars["id"]
-	data := db.GetList(key)
-
-	js_data, err := json.Marshal(data)
+	key, err := strconv.Atoi(vars["id"])
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
+	} else {
+		list := db.TaskList{Id: key}
+		list.Build()
+		js_data, err := json.Marshal(list)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+		}
+		w.Write(js_data)
 	}
-	w.Write(js_data)
 }
 
+//+
 func GetUser(w http.ResponseWriter, r *http.Request) {
-	testid := 0
+	vars := mux.Vars(r)
+	key, err := strconv.Atoi(vars["id"])
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+	} else {
+		user := db.User{Id: key}
+		user.Build()
+		js_data, err := json.Marshal(user)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+		}
+		w.Write(js_data)
+	}
+}
 
-	user := db.User{Id: testid}
-	user.BuildUser()
-	js_data, err := json.Marshal(user)
+//+
+func GetUsers(w http.ResponseWriter, r *http.Request) {
+
+	users := db.UserList{}
+	users.Build()
+	js_data, err := json.Marshal(users)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
